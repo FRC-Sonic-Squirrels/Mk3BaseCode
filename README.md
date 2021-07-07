@@ -1,8 +1,8 @@
 # Mk3BaseCode
-Contains barebones code for a robot with Mk3 modules
+Contains bare bones code for a robot with Mk3 modules,
 
 *When Cloning, make sure to use Clone(Recursive) as there is another repository attached to the Repo*
 
-This code was provided by FRC Team 2910 Jack in the Bot and repurposed by FRC Team 2930 Sonic Squirrels for a 2021 offseason Swerve Drive Project. 
+This code was provided by FRC Team 2910 Jack in the Bot and repurposed by FRC Team 2930 Sonic Squirrels for a 2021 off season Swerve Drive Project. 
 
-Team 2930 would like to thank 2910 for their Generosity for allowing us to utilzie their code. 
+Team 2930 would like to thank 2910 for their Generosity for allowing us to utilize their code. 
