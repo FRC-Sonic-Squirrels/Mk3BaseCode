@@ -41,7 +41,7 @@ public class DrivetrainSubsystem implements Subsystem, UpdateManager.Updatable {
 
     private final Object sensorLock = new Object();
     @GuardedBy("sensorLock")
-  //  private Gyroscope gyroscope = new Pigeon(Constants.PIGEON_PORT);
+    private Gyroscope gyroscope = new NavX(SPI.Port.kMXP);
 
     private final Object kinematicsLock = new Object();
     @GuardedBy("kinematicsLock")
@@ -62,7 +62,7 @@ public class DrivetrainSubsystem implements Subsystem, UpdateManager.Updatable {
 
     public DrivetrainSubsystem() {
         synchronized (sensorLock) {
-      //      gyroscope.setInverted(false);
+           gyroscope.setInverted(false);
         }
 
         TalonFX frontLeftSteeringMotor = new TalonFX(Constants.DRIVETRAIN_FRONT_LEFT_ANGLE_MOTOR);
@@ -178,8 +178,8 @@ public class DrivetrainSubsystem implements Subsystem, UpdateManager.Updatable {
 
     public void resetGyroAngle(Rotation2 angle) {
         synchronized (sensorLock) {
-    //        gyroscope.setAdjustmentAngle(
-    //                gyroscope.getUnadjustedAngle().rotateBy(angle.inverse()));
+            gyroscope.setAdjustmentAngle(
+                    gyroscope.getUnadjustedAngle().rotateBy(angle.inverse()));
         }
     }
 
@@ -205,8 +205,7 @@ public class DrivetrainSubsystem implements Subsystem, UpdateManager.Updatable {
 
         Rotation2 angle;
         synchronized (sensorLock) {
-            angle = 0;
-       //     angle = gyroscope.getAngle();
+            angle = gyroscope.getAngle();
         }
 
         synchronized (kinematicsLock) {
