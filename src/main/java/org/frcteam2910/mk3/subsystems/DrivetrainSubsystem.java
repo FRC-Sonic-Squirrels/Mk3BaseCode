@@ -205,7 +205,7 @@ public class DrivetrainSubsystem implements Subsystem, UpdateManager.Updatable {
 
         Rotation2 angle;
         synchronized (sensorLock) {
-            angle = 0;
+            angle = new Rotation2(0, 0, true);
        //     angle = gyroscope.getAngle();
         }
 
